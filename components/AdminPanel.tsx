@@ -47,14 +47,15 @@ export default function AdminPanel() {
     setBusy(false);
   }
   async function remove(g: Guest) {
-    if (!confirm(`Remove the invitation for ${g.guest_name}? Their code will stop working.`)) return;
+    const answered = g.status !== "pending" ? ` They have already ${g.status === "accepted" ? "accepted" : "declined"}, and that response will be deleted.` : "";
+    if (!confirm(`Remove the invitation for ${g.guest_name}? Their code will stop working.${answered}`)) return;
     const r = await fetch(`/api/admin/invitations?id=${encodeURIComponent(g.id)}`, { method: "DELETE" });
     const d = await r.json();
     setMessage(d.message || "");
     if (r.ok) await load();
   }
   async function copyInvite(g: Guest) {
-    const text = `You're invited to Ademi & Rasheed's celebration!\nRSVP here: ${window.location.origin}\nYour name: ${g.guest_name}\nYour invitation code: ${g.code}`;
+    const text = `${g.guest_name}, you're invited to Ademi & Rasheed's celebration!\nYour personal invitation (tap to RSVP): ${window.location.origin}/?code=${g.code}\nOr open ${window.location.origin} and enter your code: ${g.code}`;
     try { await navigator.clipboard.writeText(text); setMessage(`Invitation text for ${g.guest_name} copied.`); }
     catch { setMessage("Could not copy. Please copy the code manually."); }
   }
@@ -103,11 +104,11 @@ export default function AdminPanel() {
         <div><strong>{g.guest_name}</strong><small>{g.code}</small></div>
         <div className="row-actions">
           <button className="export" onClick={() => copyInvite(g)}>Copy invite</button>
-          {g.status === "pending" && <button className="export" onClick={() => remove(g)}>Remove</button>}
+          <button className="export" onClick={() => remove(g)}>Remove</button>
           <span className={`status ${g.status}`}>{g.status}</span>
         </div>
       </div>)}
     </div>
-    <p className="admin-hint">Each code is single-use and tied to the guest name entered above. Share each code privately with its named guest. Only invitations that haven&apos;t responded can be removed.</p>
+    <p className="admin-hint">Each code is single-use and tied to the guest name entered above. Share each code privately with its named guest. Removing an invitation (even one that has responded) deletes its code and response, and frees the seat.</p>
   </section></main>;
 }
