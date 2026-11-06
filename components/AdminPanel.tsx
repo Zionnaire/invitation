@@ -55,9 +55,19 @@ export default function AdminPanel() {
     if (r.ok) await load();
   }
   async function copyInvite(g: Guest) {
-    const text = `${g.guest_name}, you're invited to Ademi & Rasheed's celebration!\nYour personal invitation (tap to RSVP): ${window.location.origin}/?code=${g.code}\nOr open ${window.location.origin} and enter your code: ${g.code}`;
-    try { await navigator.clipboard.writeText(text); setMessage(`Invitation text for ${g.guest_name} copied.`); }
-    catch { setMessage("Could not copy. Please copy the code manually."); }
+    const origin = window.location.origin;
+    const text = `RSVP link: ${origin}/?code=${g.code}\nInvitation code: ${g.code}`;
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; }
+    catch {
+      // Fallback for browsers that block the clipboard API.
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand("copy"); } catch { ok = false; }
+      document.body.removeChild(ta);
+    }
+    setMessage(ok ? `Copied for ${g.guest_name}: ${origin}/?code=${g.code} · Code: ${g.code}` : `Could not copy automatically. Link: ${origin}/?code=${g.code} · Code: ${g.code}`);
   }
   function exportCsv() {
     const rows = [["Guest", "Invitation code", "RSVP status", "Responded at"], ...guests.map((g) => [g.guest_name, g.code, g.status, g.responded_at || ""])];
