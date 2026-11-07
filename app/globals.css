@@ -114,10 +114,10 @@ button { font-family: inherit; }
 .facts dd small{text-wrap:balance}
 
 /* ---------- Opener ---------- */
-.hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; padding: 48px 18px; overflow: hidden; }
+.hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; padding: 40px 18px; overflow: hidden; }
 .hero-bg { position: absolute; inset: -40px; z-index: -2; background: url(/couple.jpg) center 40% / cover; filter: blur(34px) brightness(.34) saturate(1.1); }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 40%, transparent 30%, #1a0509aa 100%), #5c142655; }
-.hero-photo { position: relative; width: min(78vw, 400px); aspect-ratio: 3 / 4; border-radius: 200px 200px 0 0; box-shadow: 0 30px 70px #0008; }
+.hero-photo { position: relative; height: min(50svh, 500px); max-width: 84vw; aspect-ratio: 3 / 4; border-radius: 200px 200px 0 0; box-shadow: 0 30px 70px #0008; }
 .hero-photo::after { content: ""; position: absolute; inset: -12px; border: 1px solid var(--gold); border-radius: 212px 212px 0 0; pointer-events: none; }
 .hero-photo img { object-fit: cover; object-position: 50% 30%; border-radius: inherit; }
 .hero-copy { text-align: center; color: var(--ivory); }
@@ -128,9 +128,22 @@ button { font-family: inherit; }
 @media (max-width: 560px) {
   .hero { justify-content: flex-end; padding: 0 22px 56px; gap: 0; }
   .hero-bg { display: none; }
-  .hero-photo { position: absolute; inset: 0; z-index: -2; width: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none; }
+  .hero-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: auto; max-width: none; aspect-ratio: auto; border-radius: 0; box-shadow: none; }
   .hero-photo::after { display: none; }
   .hero-photo img { object-position: 50% 35%; }
   .hero::after { background: linear-gradient(180deg, #3f0a1833 0%, transparent 30%, #3f0a18d9 68%, var(--oxblood) 100%); }
   .stage { padding: 0; }
 }
+
+/* ---------- Theme copy ---------- */
+.hero-title { margin: 18px 0 0; font: 500 clamp(44px, 9vw, 64px)/1 var(--serif); letter-spacing: -.01em; }
+.hero-plus { margin: 14px 0 28px; font: italic 400 22px var(--serif); color: var(--gold-hi); }
+.hero-copy .kicker { letter-spacing: .3em; max-width: 300px; margin: 0 auto; line-height: 1.9; }
+.theme { margin: 30px 0 0; font: italic 500 34px/1.1 var(--serif); }
+.plus { margin: 10px 0 0; font: 500 10px var(--sans); letter-spacing: .36em; text-transform: uppercase; color: var(--muted); }
+.lede { max-width: 410px; }
+.story { max-width: 440px; margin: 0 auto; }
+.story h3 { margin: 0 0 18px; font: 500 12px var(--sans); letter-spacing: .42em; text-indent: .42em; text-transform: uppercase; color: var(--gold); }
+.story p { margin: 0 0 16px; font: 400 21px/1.55 var(--serif); color: #3d2d2e; }
+.story p:last-child { margin-bottom: 0; font-style: italic; color: var(--wine); }
+.theme.foil{background-image:linear-gradient(100deg,#6f5120 0%,#a98240 50%,#7d5e26 100%)}

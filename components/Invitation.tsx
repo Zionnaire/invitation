@@ -75,8 +75,9 @@ export default function Invitation() {
         <Image src="/couple.jpg" alt="Ademi and Rasheed smiling together" fill priority sizes="(max-width: 560px) 100vw, 420px" />
       </div>
       <div className="hero-copy">
-        <p className="kicker rise" style={{ "--d": ".2s" } as React.CSSProperties}>You are invited</p>
-        <p className="hero-date rise" style={{ "--d": ".35s" } as React.CSSProperties}>27 · 11 · 2026</p>
+        <p className="kicker rise" style={{ "--d": ".2s" } as React.CSSProperties}>With full hearts and deep gratitude</p>
+        <h1 className="hero-title rise" style={{ "--d": ".35s" } as React.CSSProperties}>The Beginning<br />of Forever</h1>
+        <p className="hero-plus rise" style={{ "--d": ".45s" } as React.CSSProperties}>…plus one day more</p>
         <a className="btn rise" style={{ "--d": ".5s" } as React.CSSProperties} href="#invitation">Open invitation</a>
       </div>
     </header>
@@ -85,12 +86,21 @@ export default function Invitation() {
       <div className="frame" aria-hidden="true" />
       <Corner className="tl" /><Corner className="tr" /><Corner className="bl" /><Corner className="br" />
 
-      <p className="kicker rise">An intimate celebration with</p>
-      <h1 className="names rise" style={{ "--d": ".12s" } as React.CSSProperties} aria-label="Ademi and Rasheed">
+      <p className="kicker rise">You are cordially invited</p>
+      <h2 className="names rise" style={{ "--d": ".12s" } as React.CSSProperties} aria-label="Ademi and Rasheed">
         <span>Ademi</span><span className="amp foil">&amp;</span><span>Rasheed</span>
-      </h1>
-      <p className="lede rise" style={{ "--d": ".24s" } as React.CSSProperties}>Join us for an evening of good food, great company and celebration.</p>
+      </h2>
+      <p className="theme foil rise" style={{ "--d": ".2s" } as React.CSSProperties}>The Beginning of Forever</p>
+      <p className="plus rise" style={{ "--d": ".24s" } as React.CSSProperties}>…plus one day more</p>
+      <p className="lede rise" style={{ "--d": ".28s" } as React.CSSProperties}>To celebrate the beginning of a beautiful journey as we unite in love, commitment, and friendship.</p>
       <div className="rule rise" style={{ "--d": ".32s" } as React.CSSProperties} aria-hidden="true"><i /></div>
+
+      <section className="story rise" style={{ "--d": ".36s" } as React.CSSProperties}>
+        <h3>A Journey of Love</h3>
+        <p>Every beautiful love story is a journey, and ours is entering a new chapter. Two hearts, choosing one another, promising to grow together, stand together, and build a lifetime filled with love, laughter, faith, and endless memories.</p>
+        <p>We would be honored to have you share in this special beginning and make memories with us that will last a lifetime.</p>
+      </section>
+      <div className="rule rise" style={{ "--d": ".4s" } as React.CSSProperties} aria-hidden="true"><i /></div>
 
       <section className="when rise" style={{ "--d": ".4s" } as React.CSSProperties} aria-label="Event details">
         <div className="day">
