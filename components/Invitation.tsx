@@ -7,7 +7,16 @@ type Choice = "accepted" | "declined";
 type Guest = { name: string; status: "pending" | Choice };
 type Step = "code" | "respond" | "done";
 
-const Corner = ({ className }: { className: string }) => (
+// Fri 27 Nov 2026, 6-10 PM Central (UTC-6) = 28 Nov 00:00-04:00 UTC
+const GOOGLE_CAL = "https://calendar.google.com/calendar/render?" + new URLSearchParams({
+  action: "TEMPLATE",
+  text: "Ademi & Rasheed - The Beginning of Forever",
+  dates: "20261128T000000Z/20261128T040000Z",
+  details: "With full hearts and deep gratitude, you are cordially invited. Dress code: Formal attire.",
+  location: "Perry's Steakhouse & Grille, 1780 E Golf Road, Schaumburg, IL 60173"
+}).toString();
+
+const Corner =({ className }: { className: string }) => (
   <svg className={`corner ${className}`} viewBox="0 0 38 38" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
     <path d="M1 37V1h36" /><path d="M7 31V7h24" /><rect x="11" y="11" width="5" height="5" transform="rotate(45 13.5 13.5)" fill="currentColor" stroke="none" />
   </svg>
@@ -114,6 +123,11 @@ export default function Invitation() {
           <div><dt>Dress code</dt><dd>Formal attire</dd></div>
         </dl>
       </section>
+      <p className="cal rise" style={{ "--d": ".45s" } as React.CSSProperties}>
+        <span>Add to calendar</span>
+        <a href={GOOGLE_CAL} target="_blank" rel="noopener noreferrer">Google</a>
+        <a href="/ademi-rasheed.ics" download="ademi-rasheed.ics">Apple / Outlook</a>
+      </p>
 
       <section className="reply rise" style={{ "--d": ".5s" } as React.CSSProperties}>
         <h2>R.S.V.P.</h2>

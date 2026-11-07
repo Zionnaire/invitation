@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ademi and Rasheed//Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:ademi-rasheed-2026-11-27@invitation
+DTSTAMP:20261107T000000Z
+DTSTART:20261128T000000Z
+DTEND:20261128T040000Z
+SUMMARY:Ademi & Rasheed - The Beginning of Forever
+DESCRIPTION:With full hearts and deep gratitude\, you are cordially invited to celebrate with Ademi & Rasheed. Dress code: Formal attire.
+LOCATION:Perry's Steakhouse & Grille\, 1780 E Golf Road\, Schaumburg\, IL 60173
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Ademi & Rasheed's celebration is tomorrow
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
