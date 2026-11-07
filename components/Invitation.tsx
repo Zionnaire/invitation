@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 type Choice = "accepted" | "declined";
@@ -67,7 +68,19 @@ export default function Invitation() {
 
   const first = guest?.name.split(" ")[0] ?? "";
 
-  return <main className="stage">
+  return <main>
+    <header className="hero">
+      <div className="hero-bg" aria-hidden="true" />
+      <div className="hero-photo">
+        <Image src="/couple.jpg" alt="Ademi and Rasheed smiling together" fill priority sizes="(max-width: 560px) 100vw, 420px" />
+      </div>
+      <div className="hero-copy">
+        <p className="kicker rise" style={{ "--d": ".2s" } as React.CSSProperties}>You are invited</p>
+        <p className="hero-date rise" style={{ "--d": ".35s" } as React.CSSProperties}>27 · 11 · 2026</p>
+        <a className="btn rise" style={{ "--d": ".5s" } as React.CSSProperties} href="#invitation">Open invitation</a>
+      </div>
+    </header>
+    <div className="stage" id="invitation">
     <article className="card">
       <div className="frame" aria-hidden="true" />
       <Corner className="tl" /><Corner className="tr" /><Corner className="bl" /><Corner className="br" />
@@ -103,6 +116,7 @@ export default function Invitation() {
       <p className="closing rise" style={{ "--d": ".6s" } as React.CSSProperties}>We look forward to celebrating with you!</p>
       <p className="fine">A personal invitation · For named guests only</p>
     </article>
+    </div>
 
     {open && <div className="backdrop" role="presentation" onMouseDown={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
       <section className="dialog" role="dialog" aria-modal="true" aria-labelledby="rsvp-title">
