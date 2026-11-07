@@ -108,7 +108,7 @@ export default function AdminPanel() {
       <button className="submit-button" disabled={busy || full}>{full ? `All ${max} invitations issued` : busy ? "Creating…" : "Create invitation code"}</button>
     </form>
     {message && <p className="admin-message" role="status">{message}</p>}
-    <div className="table-head"><h2>Invitations</h2><div><button className="export" onClick={exportCsv}>Export CSV ↓</button> <button className="export" onClick={logout}>Sign out</button></div></div>
+    <div className="table-head"><h2>Invitations</h2><div className="head-actions"><button className="export" onClick={exportCsv}>Export CSV ↓</button> <button className="export" onClick={logout}>Sign out</button></div></div>
     <div className="guest-list">{guests.map((g) =>
       <div className="guest-row" key={g.id}>
         <div><strong>{g.guest_name}</strong><small>{g.code}</small></div>

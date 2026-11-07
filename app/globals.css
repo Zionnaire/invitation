@@ -151,3 +151,30 @@ button { font-family: inherit; }
 .cal { margin: 30px 0 0; display: flex; justify-content: center; align-items: center; gap: 8px 18px; flex-wrap: wrap; font: 500 10px var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
 .cal a { color: var(--wine); text-decoration: none; padding: 8px 14px; border: 1px solid #b48e4c88; letter-spacing: .22em; transition: background .2s, color .2s; }
 .cal a:hover, .cal a:focus-visible { background: var(--wine); color: var(--ivory); outline: none; }
+
+/* ---------- Responsive pass ---------- */
+img { max-width: 100%; }
+.cal { flex-direction: column; gap: 12px; }
+.cal a { width: 100%; max-width: 250px; text-align: center; }
+
+.table-head { flex-wrap: wrap; gap: 12px; }
+.head-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.guest-row > div:first-child { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  .admin-wrap { padding: 20px 12px; }
+  .table-head { flex-direction: column; align-items: stretch; }
+  .head-actions { flex-direction: column; }
+  .head-actions .export { width: 100%; padding: 12px 14px; }
+  .guest-row { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px 2px; }
+  .row-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; justify-content: stretch; }
+  .row-actions .export { width: 100%; padding: 10px 8px; }
+  .row-actions .status { grid-column: 1 / -1; order: -1; justify-self: start; }
+  .stats b { font-size: 26px; }
+}
+@media (max-width: 360px) {
+  .card { padding-left: 20px; padding-right: 20px; }
+  .hero-title { font-size: 40px; }
+  .reply .by { font-size: 19px; letter-spacing: .08em; }
+  .dialog { padding-left: 18px; padding-right: 18px; }
+  .btn { padding: 14px 24px; }
+}
